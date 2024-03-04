@@ -1,0 +1,46 @@
+.stratagem {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.stratagem:hover {
+    cursor: pointer;
+    color: var(--stratagem-green);
+}
+
+.stratagem-icon {
+    width: 44px;
+    height: 44px;
+    outline: 4px solid #c0776a;
+    margin: 4px;
+    padding: 4px;
+}
+
+.blue-outline {
+    outline-color: var(--stratagem-blue);
+}
+
+.red-outline {
+    outline-color: var(--stratagem-red);
+}
+
+.green-outline {
+    outline-color: var(--stratagem-green);
+}
+
+.yellow-outline {
+    outline-color: var(--stratagem-yellow);
+}
+
+.stratagem-code-arrow {
+    width: 24px;
+    height: 24px;
+}
+
+.stratagem-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 4px;
+}

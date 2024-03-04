@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-message {
+  text-transform: none;
+  font-size: 18px;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(100, 100, 100, 0.4);
+  backdrop-filter: blur(6px);
+  padding: 12px;
+  gap: 18px;
+  width: fit-content;
+}
+
+.title > img {
+  width: 24px;
+  height: 24px;
+}
+
+.stratagem-list {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(100, 100, 100, 0.4);
+  backdrop-filter: blur(6px);
+  width: fit-content;
+  padding: 12px;
+  gap: 12px;
+  margin-bottom: 24px;
+}
