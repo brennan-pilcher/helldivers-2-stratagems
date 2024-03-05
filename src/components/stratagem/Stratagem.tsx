@@ -6,14 +6,14 @@ const renderCode = (code: Direction[]) => {
     return (
         <div className='stratagem-code'>
             {code.map((direction, index) => {
-                return <img key={index} className='stratagem-code-arrow' src={assetURL(`/assets/stratagems/directions/${direction}.png`)}></img>
+                return <img key={index} className='stratagem-code-arrow' src={assetURL(`/stratagems/directions/${direction}.png`)}></img>
             })}
         </div>
     )
 }
 
 const Stratagem = ({ stratagem, onClick }: { stratagem: StratagemInfo, onClick: () => void; }) => {
-    const iconUrl: string = assetURL(`/assets/stratagems/icons/${stratagem.type}/${stratagem.icon}`)
+    const iconUrl: string = assetURL(`/stratagems/icons/${stratagem.type}/${stratagem.icon}`)
 
     return (
         <div className='stratagem' onClick={onClick}>
