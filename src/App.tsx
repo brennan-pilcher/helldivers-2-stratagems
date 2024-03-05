@@ -3,6 +3,7 @@ import './App.css'
 import Stratagem from './components/stratagem/Stratagem'
 import { patrioticAdministrationCenterStratagems } from './stratagems';
 import { StratagemInfo, StratagemList } from './types';
+import { assetURL } from './util';
 
 const stratagems: StratagemList = {
     ...patrioticAdministrationCenterStratagems
@@ -20,7 +21,7 @@ function App() {
     return (
         <div className='container'>
             <div className='title'>
-                <img src='/assets/stratagems/stratagem-icon.svg'></img>
+                <img src={assetURL('/stratagems/stratagem-icon.svg')}></img>
                 <span>Stratagems</span>
             </div>
             <div className='stratagem-list'>
