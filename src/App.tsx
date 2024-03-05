@@ -8,10 +8,6 @@ const stratagems: StratagemList = {
     ...patrioticAdministrationCenterStratagems
 }
 
-const parseQueryParams = () => {
-
-}
-
 function App() {
     const [selectedStratagems, setSelectedStratagems] = useState<string[]>([]);
 
