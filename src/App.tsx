@@ -9,13 +9,37 @@ const stratagems: StratagemList = {
     ...patrioticAdministrationCenterStratagems
 }
 
+const getQueryParams = (): string[] => {
+    console.log("location: ", window.location.href)
+    const queryParams: URLSearchParams = new URLSearchParams(window.location.search);
+
+    if (queryParams.has('ids')) {
+        const paramString: string = queryParams.get('ids') ?? ''
+
+        return paramString.split(',') ?? []
+    } else {
+        return []
+    }
+}
+
+const updateQueryParams = (ids: string[]) => {
+    const url = new URL(window.location.href)
+    url.searchParams.set('ids', ids.join(','))
+    url.search = decodeURIComponent(url.search)
+
+    console.log("setting query params to: ", url.search)
+    // window.location.search = queryParams.toString()
+    window.history.pushState({}, '', url)
+}
+
 function App() {
     const [selectedStratagems, setSelectedStratagems] = useState<string[]>([]);
 
     useEffect(() => {
-        console.log("location: ", window.location.href)
-        const queryParams = new URLSearchParams(window.location.search);
-        console.log("queryParams: ", queryParams)
+        const ids: string[] = getQueryParams().filter(id => stratagems[id] !== undefined)
+
+        updateQueryParams(ids)
+        setSelectedStratagems(ids)
     }, []);
 
     return (
@@ -31,7 +55,15 @@ function App() {
                             <Stratagem
                                 key={`${stratagems[id].name}-selected`}
                                 stratagem={stratagems[id]}
-                                onClick={() => setSelectedStratagems(previousSelected => previousSelected.filter(strategemId => id !== strategemId))}
+                                onClick={
+                                    () => setSelectedStratagems(previousSelected => {
+                                        const selected: string[] = previousSelected.filter(strategemId => id !== strategemId)
+
+                                        updateQueryParams(selected)
+
+                                        return selected
+                                    })
+                                }
                             />)
                         : <span className='info-message'>No stratagems selected.</span>
                 }
@@ -48,11 +80,15 @@ function App() {
                         return <Stratagem
                             key={stratagem.name}
                             stratagem={stratagem}
-                            onClick={() => setSelectedStratagems(previousSelected => {
-                                const selected = new Set([...previousSelected, id])
+                            onClick={
+                                () => setSelectedStratagems(previousSelected => {
+                                    const selected = [...(new Set([...previousSelected, id]))]
 
-                                return [...selected]
-                            })}
+                                    updateQueryParams(selected)
+
+                                    return selected
+                                })
+                            }
                         />
                     })
                 }
