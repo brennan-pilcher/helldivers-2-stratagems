@@ -1,0 +1,1 @@
+export const assetURL = (path: string) => new URL(path, import.meta.url).href;

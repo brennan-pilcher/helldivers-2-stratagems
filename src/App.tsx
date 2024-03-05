@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css'
 import Stratagem from './components/stratagem/Stratagem'
 import { patrioticAdministrationCenterStratagems } from './stratagems';
@@ -8,8 +8,18 @@ const stratagems: StratagemList = {
     ...patrioticAdministrationCenterStratagems
 }
 
+const parseQueryParams = () => {
+
+}
+
 function App() {
     const [selectedStratagems, setSelectedStratagems] = useState<string[]>([]);
+
+    useEffect(() => {
+        console.log("location: ", window.location.href)
+        const queryParams = new URLSearchParams(window.location.search);
+        console.log("queryParams: ", queryParams)
+    }, []);
 
     return (
         <div className='container'>
