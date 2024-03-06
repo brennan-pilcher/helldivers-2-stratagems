@@ -2,6 +2,20 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  padding: 12px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.all-stratagems-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
 }
 
 .info-message {
@@ -12,8 +26,6 @@
 .title {
   display: flex;
   flex-direction: row;
-  background-color: rgba(100, 100, 100, 0.4);
-  backdrop-filter: blur(6px);
   padding: 12px;
   gap: 18px;
   width: fit-content;
@@ -27,10 +39,18 @@
 .stratagem-list {
   display: flex;
   flex-direction: column;
-  background-color: rgba(100, 100, 100, 0.4);
-  backdrop-filter: blur(6px);
   width: fit-content;
   padding: 12px;
-  gap: 12px;
+  gap: 20px;
   margin-bottom: 24px;
+}
+
+.bg-light {
+  background-color: var(--transparent-light);
+  backdrop-filter: blur(6px);
+}
+
+.bg-dark {
+  background-color: var(--transparent-dark);
+  backdrop-filter: blur(6px);
 }

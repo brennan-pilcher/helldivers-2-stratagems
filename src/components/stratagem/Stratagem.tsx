@@ -1,6 +1,13 @@
-import { Direction, StratagemInfo } from '../../types'
+import { Direction, StratagemDisplayMode, StratagemInfo } from '../../types'
 import { assetURL } from '../../util'
 import './Stratagem.css'
+
+interface StratagemProps {
+    stratagem: StratagemInfo;
+    mode: StratagemDisplayMode;
+    selected?: boolean;
+    onClick: () => void;
+}
 
 const renderCode = (code: Direction[]) => {
     return (
@@ -12,16 +19,19 @@ const renderCode = (code: Direction[]) => {
     )
 }
 
-const Stratagem = ({ stratagem, onClick }: { stratagem: StratagemInfo, onClick: () => void; }) => {
-    const iconUrl: string = assetURL(`/stratagems/icons/${stratagem.type}/${stratagem.icon}`)
+const Stratagem = ({ stratagem, mode, selected = false, onClick }: StratagemProps) => {
+    const fullMode: boolean = mode === StratagemDisplayMode.FULL
+    const icon: string = assetURL(`/stratagems/icons/${stratagem.type}/${stratagem.icon}`)
+    const selectedCorner: string = assetURL('/corner-check.svg')
 
     return (
-        <div className='stratagem' onClick={onClick}>
-            <img className={`stratagem-icon ${stratagem.outline}-outline`} src={iconUrl}></img>
-            <div className='stratagem-info'>
+        <div className={`stratagem${fullMode ? '' : '-mini'}`} onClick={onClick}>
+            <img className={`stratagem-icon${fullMode ? '' : '-mini'} ${stratagem.outline}-outline`} src={icon}></img>
+            <div className={`stratagem-info${fullMode ? '' : '-mini'}`}>
                 <span className='stratagem-name'>{stratagem.name}</span>
-                {renderCode(stratagem.code)}
+                {fullMode ? renderCode(stratagem.code) : <></>}
             </div>
+            {fullMode ? <></> : <img className={`selected-corner ${selected ? '' : 'hidden'}`} src={selectedCorner}></img>}
         </div>
     )
 }

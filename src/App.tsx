@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css'
 import Stratagem from './components/stratagem/Stratagem'
 import { patrioticAdministrationCenterStratagems } from './stratagems';
-import { StratagemInfo, StratagemList } from './types';
+import { StratagemDisplayMode, StratagemInfo, StratagemList } from './types';
 import { assetURL } from './util';
 
 const stratagems: StratagemList = {
@@ -44,17 +44,22 @@ function App() {
 
     return (
         <div className='container'>
-            <div className='title'>
-                <img src={assetURL('/stratagems/stratagem-icon.svg')}></img>
-                <span>Stratagems</span>
+            <div className='header'>
+                <div className='title bg-light'>
+                    <img src={assetURL('/stratagems/stratagem-icon.svg')}></img>
+                    <span>Stratagems</span>
+                </div>
+                <span className='material-symbols-outlined'>search</span>
             </div>
-            <div className='stratagem-list'>
+            
+            <div className='stratagem-list bg-light'>
                 {
                     selectedStratagems.length > 0
                         ? selectedStratagems.map(id =>
                             <Stratagem
                                 key={`${stratagems[id].name}-selected`}
                                 stratagem={stratagems[id]}
+                                mode={StratagemDisplayMode.FULL}
                                 onClick={
                                     () => setSelectedStratagems(previousSelected => {
                                         const selected: string[] = previousSelected.filter(strategemId => id !== strategemId)
@@ -68,11 +73,10 @@ function App() {
                         : <span className='info-message'>No stratagems selected.</span>
                 }
             </div>
-
-            <div className='title'>
+            
+            <div className='all-stratagems-container bg-dark'>
+                <div className='stratagem-list'>
                 <span>Patriotic Administration Center</span>
-            </div>
-            <div className='stratagem-list'>
                 {
                     Object.keys(patrioticAdministrationCenterStratagems).map(id => {
                         const stratagem: StratagemInfo = patrioticAdministrationCenterStratagems[id]
@@ -80,6 +84,8 @@ function App() {
                         return <Stratagem
                             key={stratagem.name}
                             stratagem={stratagem}
+                            mode={StratagemDisplayMode.MINI}
+                            selected={selectedStratagems.includes(id)}
                             onClick={
                                 () => setSelectedStratagems(previousSelected => {
                                     const selected = [...(new Set([...previousSelected, id]))]
@@ -93,6 +99,8 @@ function App() {
                     })
                 }
             </div>
+            </div>
+            
         </div>
     )
 }

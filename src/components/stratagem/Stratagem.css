@@ -1,7 +1,32 @@
 .stratagem {
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     gap: 24px;
+}
+
+.stratagem-mini {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    background-color: var(--transparent-light);
+    outline: 4px solid var(--transparent-light);
+    outline-offset: 4px;
+}
+
+.stratagem-mini:hover {
+    outline: 4px solid var(--stratagem-yellow);
+}
+
+.selected-corner {
+    margin-left: auto;
+    width: 44px;
+    height: 44px;
+}
+
+.hidden {
+    opacity: 0;
 }
 
 .stratagem:hover {
@@ -14,6 +39,13 @@
     height: 44px;
     outline: 4px solid #c0776a;
     margin: 4px;
+    padding: 4px;
+}
+
+.stratagem-icon-mini {
+    background-color: var(--transparent-light);
+    width: 36px;
+    height: 36px;
     padding: 4px;
 }
 
@@ -43,4 +75,15 @@
     flex-direction: column;
     justify-content: flex-end;
     gap: 4px;
+}
+
+.stratagem-info-mini {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+.stratagem-name {
+    margin-right: 12px;
 }

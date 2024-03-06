@@ -12,6 +12,11 @@ export enum OutlineColor {
     YELLOW = 'yellow'
 }
 
+export enum StratagemDisplayMode {
+    FULL,
+    MINI
+}
+
 export enum StratagemType {
     PATRIOTIC_ADMINISTRATION_CENTER = 'Patriotic Administration Center',
     ORBITAL_CANNONS = 'Orbital Cannons',
