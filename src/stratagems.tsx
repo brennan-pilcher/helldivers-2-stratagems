@@ -2,10 +2,10 @@ import {
     OutlineColor,
     Direction,
     StratagemType,
-    StratagemList
+    StratagemSection
 } from "./types";
 
-export const patrioticAdministrationCenterStratagems: StratagemList = {
+export const patrioticAdministrationCenterStratagems: StratagemSection = {
     mg43: {
         order: 0,
         name: 'MG-43 Machine Gun',
@@ -136,3 +136,105 @@ export const patrioticAdministrationCenterStratagems: StratagemList = {
         outline: OutlineColor.BLUE
     }
 };
+
+export const orbitalCannonsStratagems: StratagemSection = {
+    he120mm: {
+        order: 0,
+        name: 'Orbital 120MM HE Barrage',
+        type: StratagemType.ORBITAL_CANNONS,
+        code: [
+            Direction.RIGHT,
+            Direction.RIGHT,
+            Direction.DOWN,
+            Direction.LEFT,
+            Direction.RIGHT,
+            Direction.DOWN
+        ],
+        icon: 'Orbital 120MM HE Barrage.svg',
+        outline: OutlineColor.BLUE,
+    },
+    he380mm: {
+        order: 0,
+        name: 'Orbital 380MM HE Barrage',
+        type: StratagemType.ORBITAL_CANNONS,
+        code: [
+            Direction.RIGHT,
+            Direction.DOWN,
+            Direction.RIGHT,
+            Direction.DOWN,
+            Direction.RIGHT,
+            Direction.DOWN
+        ],
+        icon: 'Orbital 380MM HE Barrage.svg',
+        outline: OutlineColor.BLUE,
+    },
+    airburst: {
+        order: 0,
+        name: 'Orbital Airburst Strike',
+        type: StratagemType.ORBITAL_CANNONS,
+        code: [
+            Direction.RIGHT,
+            Direction.RIGHT,
+            Direction.RIGHT
+        ],
+        icon: 'Orbital Airburst Strike.svg',
+        outline: OutlineColor.BLUE,
+    },
+    gatling: {
+        order: 0,
+        name: 'Orbital Gatling Barrage',
+        type: StratagemType.ORBITAL_CANNONS,
+        code: [
+            Direction.RIGHT,
+            Direction.RIGHT,
+            Direction.LEFT,
+            Direction.UP,
+            Direction.DOWN
+        ],
+        icon: 'Orbital Gatling Barrage.svg',
+        outline: OutlineColor.BLUE,
+    },
+    laser: {
+        order: 0,
+        name: 'Orbital Laser',
+        type: StratagemType.ORBITAL_CANNONS,
+        code: [
+            Direction.RIGHT,
+            Direction.DOWN,
+            Direction.UP,
+            Direction.RIGHT,
+            Direction.DOWN
+        ],
+        icon: 'Orbital Laser.svg',
+        outline: OutlineColor.BLUE,
+    },
+    rail: {
+        order: 0,
+        name: 'Orbital Railcannon Strike',
+        type: StratagemType.ORBITAL_CANNONS,
+        code: [
+            Direction.RIGHT,
+            Direction.UP,
+            Direction.DOWN,
+            Direction.DOWN,
+            Direction.RIGHT
+        ],
+        icon: 'Orbital Railcannon Strike.svg',
+        outline: OutlineColor.BLUE,
+    },
+    walking: {
+        order: 0,
+        name: 'Orbital Walking Barrage',
+        type: StratagemType.ORBITAL_CANNONS,
+        code: [
+            Direction.RIGHT,
+            Direction.DOWN,
+            Direction.RIGHT,
+            Direction.DOWN,
+            Direction.RIGHT,
+            Direction.DOWN
+        ],
+        icon: 'Orbital Walking Barrage.svg',
+        outline: OutlineColor.BLUE,
+    },
+}

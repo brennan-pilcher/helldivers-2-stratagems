@@ -36,6 +36,6 @@ export interface StratagemInfo {
     outline: OutlineColor;
 }
 
-export interface StratagemList {
+export interface StratagemSection {
     [key: string]: StratagemInfo;
 }
